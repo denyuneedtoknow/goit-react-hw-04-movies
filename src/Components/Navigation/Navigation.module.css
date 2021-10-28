@@ -1,0 +1,13 @@
+.header {
+  margin: 0;
+  padding: 0;
+  color: blue;
+}
+
+.link {
+  color: green;
+  padding-right: 10px;
+}
+.activeLink {
+  color: red;
+}
