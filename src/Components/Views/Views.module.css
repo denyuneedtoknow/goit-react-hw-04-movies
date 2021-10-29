@@ -1,0 +1,9 @@
+h1 {
+  padding-left: 30px;
+}
+
+.movieCardThumb {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
