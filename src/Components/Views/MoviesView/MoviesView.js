@@ -1,25 +1,35 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { GetTrandingMovies } from "../../../Services/GetMovies";
+import { GetMovieByName } from "../../../Services/GetMovies";
 import { useState, useEffect } from "react";
 import s from "../../Views/Views.module.css";
+import SearchBar from "../../SearchBar";
 
 const MoviesView = () => {
   const [movies, setMovies] = useState([]);
+  const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
-    GetTrandingMovies().then((data) => {
-      //   console.log(data);
+    if (keyword === "") {
+      return;
+    }
+    GetMovieByName(keyword).then((data) => {
+      console.log(data);
       setMovies(data);
     });
-  }, []);
+  }, [keyword]);
+
+  const handleFormSubmit = (keyword) => {
+    setKeyword(keyword);
+    console.log(movies);
+  };
 
   return (
     <>
       {" "}
       <div>
         <h1>Search for the movie</h1>
-
+        <SearchBar onSubmit={handleFormSubmit} />
         <ul>
           {movies.map((movie) => {
             return <li key={movie.id}>{movie.title}</li>;

@@ -14,7 +14,7 @@ const MovieDetailsPage = () => {
     GetMovieById(params.movieId).then((r) => {
       setMovieDetails(r.data);
     });
-  }, []);
+  }, [params.movieId]);
   //   console.log(movieDetails);
   return (
     <>

@@ -23,3 +23,12 @@ export async function GetMovieById(id) {
       return r;
     });
 }
+
+export async function GetMovieByName(query) {
+  return await axios
+    .get(`${APIadress}search/movie?api_key=${APIkey}&query=${query}`)
+    .then((r) => {
+      console.log(r);
+      return r;
+    });
+}
