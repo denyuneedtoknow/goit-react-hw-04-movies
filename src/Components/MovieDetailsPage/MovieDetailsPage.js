@@ -1,27 +1,34 @@
-import React from "react"
-import { Link, NavLink } from "react-router-dom"
-import GetMovies from '../../Services/GetMovies'
-import { useState, useEffect } from "react"
-import s from '../MovieDetailsPage/MovieDetailsPage.module.css'
-
+import React from "react";
+import { useParams } from "react-router-dom";
+import { GetMovieById } from "../../Services/GetMovies";
+import { useState, useEffect } from "react";
+import s from "../MovieDetailsPage/MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
-    // const [movies, setMovies] = useState([])
+  const APIadress = "https://image.tmdb.org/t/p/w500/";
+  const params = useParams();
 
-    // useEffect(() => {
-    //     GetMovies().then((data => {
-    //         console.log(data);
-    //         setMovies(data)
-    //     }))
-    // }, [])
+  const [movieDetails, setMovieDetails] = useState({});
 
-    return (
-        <>        <div>
-            <h1>Movie 001</h1>
+  useEffect(() => {
+    GetMovieById(params.movieId).then((r) => {
+      setMovieDetails(r.data);
+    });
+  }, []);
+  //   console.log(movieDetails);
+  return (
+    <>
+      {" "}
+      <div>
+        <h1>{movieDetails.title}</h1>
+        <img
+          alt={movieDetails.title}
+          src={`${APIadress}${movieDetails.backdrop_path}`}
+        />
+        <p>{movieDetails.overview}</p>
+      </div>
+    </>
+  );
+};
 
-        </div>
-        </>
-    )
-}
-
-export default MovieDetailsPage
+export default MovieDetailsPage;
