@@ -10,7 +10,7 @@ const Navigation = () => {
         <div>
             <h1 className={s.header}>Navigation</h1>
             <NavLink exact to='/' className={s.link} activeClassName={s.activeLink}>Home</NavLink>
-            <NavLink to='/MoviesSearch' className={s.link} activeClassName={s.activeLink}>Search Movies</NavLink>
+            <NavLink to='/Movies' className={s.link} activeClassName={s.activeLink}>Search Movies</NavLink>
         </div>
 
     )

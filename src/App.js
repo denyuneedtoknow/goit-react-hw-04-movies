@@ -5,6 +5,7 @@ import Navigation from './Components/Navigation/Navigation';
 import HomeView from './Components/Views/HomeView'
 import MoviesView from './Components/Views/MoviesView';
 import NotFoundView from './Components/Views/NotFoundView';
+import MovieDetailsPage from './Components/MovieDetailsPage/'
 
 
 function App() {
@@ -15,12 +16,16 @@ function App() {
         <Route path='/' exact>
           <HomeView />
         </Route>
-        <Route path='/MoviesSearch'>
+        <Route path='/Movies' exact>
           <MoviesView />
         </Route>
-        <Route path=''>
-          <NotFoundView />
+        <Route path='/Movies/:movieId'>
+          <MovieDetailsPage />
         </Route>
+        {/* <Route path=''>
+          <NotFoundView />
+        </Route> */}
+
       </Switch>
     </div>
   );
