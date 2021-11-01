@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import s from "../Cast/Cast.module.css";
 
 
-const Cast = () => {
+const Reviews = () => {
     const params = useParams()
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
@@ -16,17 +16,17 @@ const Cast = () => {
         })
 
     }, [params.movieId]);
-
+    if (reviews.length === 0) { return (<div>No reviews finded</div>) }
     return (
         <div>
             <h2>Reviews</h2>
-            {reviews && <ul>
+            <ul>
                 {reviews.map((review) => {
                     return <li key={review.id}><div><h3>{review.author}</h3><p>{review.content}</p></div></li>
                 })}
-            </ul>}
+            </ul>
         </div>
     )
 }
 
-export default Cast
+export default Reviews
