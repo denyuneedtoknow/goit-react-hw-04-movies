@@ -1,0 +1,15 @@
+.profilePhoto {
+  width: 100px;
+}
+.actorsList {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.actorCard {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}

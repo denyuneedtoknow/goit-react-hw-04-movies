@@ -3,15 +3,17 @@ import { useParams, useRouteMatch, useHistory } from "react-router-dom";
 import { GetMovieCast } from "../../Services/GetMovies";
 import { useState, useEffect } from "react";
 import s from "../Cast/Cast.module.css";
+import defaultImage from '../../Images/unknown.jpg'
 
 
 const Cast = () => {
+    const APIadress = "https://image.tmdb.org/t/p/w500/"
     const params = useParams()
     const [cast, setCast] = useState([]);
     useEffect(() => {
 
         GetMovieCast(params.movieId).then((data) => {
-            // console.log(data.data.cast);
+            console.log(data.data.cast);
             setCast(data.data.cast);
         })
 
@@ -20,9 +22,9 @@ const Cast = () => {
     return (
         <div>
             <h2>Starring</h2>
-            <ul>
+            <ul className={s.actorsList}>
                 {cast.map((actor) => {
-                    return <li key={actor.id}>{actor.name} as {actor.character}</li>
+                    return <li key={actor.id}><div classname={s.actorCard}><img className={s.profilePhoto} src={actor.profile_path ? `${APIadress}${actor.profile_path}` : defaultImage} alt={actor.name} /><p>{actor.name}</p>as<p>{actor.character}</p></div></li>
                 })}
             </ul>
         </div>

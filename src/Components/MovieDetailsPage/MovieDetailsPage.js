@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useRouteMatch, useHistory, Link, Switch, Route } from "react-router-dom";
-import { GetMovieById, GetMovieCast } from "../../Services/GetMovies";
+import { GetMovieById } from "../../Services/GetMovies";
 import { useState, useEffect } from "react";
 import s from "../MovieDetailsPage/MovieDetailsPage.module.css";
 import Cast from '../Cast'
@@ -35,13 +35,11 @@ const MovieDetailsPage = () => {
               alt={movieDetails.title}
               src={`${APIadress}${movieDetails.backdrop_path}`}
             />
-            <p>{movieDetails.overview}</p></>}
-        <Link to={`${url}/cast`}>Cast</Link>
-        <Link to={`${url}/review`}>Review</Link>
-
-
-
-
+            <p className={s.movieView}>{movieDetails.overview}</p></>}
+        <div className={s.moreInfoMenu}>
+          <Link className={s.moreInfoBtn} to={`${url}/cast`}><p >Cast</p></Link>
+          <Link className={s.moreInfoBtn} to={`${url}/review`}><p >Review</p></Link>
+        </div>
 
         <Switch>
           <Route path='/Movies/:movieId/cast'>

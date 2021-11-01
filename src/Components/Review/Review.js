@@ -11,7 +11,7 @@ const Reviews = () => {
     useEffect(() => {
 
         GetMovieReview(params.movieId).then((data) => {
-            console.log(data.data.results);
+
             setReviews(data.data.results);
         })
 
