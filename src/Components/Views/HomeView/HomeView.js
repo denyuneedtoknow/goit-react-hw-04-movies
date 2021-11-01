@@ -10,7 +10,6 @@ const HomeView = () => {
 
   useEffect(() => {
     GetTrandingMovies().then((data) => {
-      //   console.log(data);
       setMovies(data);
     });
   }, []);
@@ -19,7 +18,7 @@ const HomeView = () => {
     <>
       {" "}
       <div>
-        <h1>Home</h1>
+        <h1>This week trending</h1>
         <ul>
           {movies.map((movie) => {
             return (

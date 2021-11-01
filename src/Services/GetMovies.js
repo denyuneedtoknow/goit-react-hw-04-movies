@@ -19,7 +19,7 @@ export async function GetMovieById(id) {
   return await axios
     .get(`${APIadress}movie/${id}?api_key=${APIkey}`)
     .then((r) => {
-      //   console.log(r);
+
       return r;
     });
 }
@@ -28,7 +28,25 @@ export async function GetMovieByName(query) {
   return await axios
     .get(`${APIadress}search/movie?api_key=${APIkey}&query=${query}`)
     .then((r) => {
-      console.log(r);
+
+      return r;
+    });
+}
+export async function GetMovieCast(id) {
+  return await axios
+
+    .get(`${APIadress}movie/${id}/credits?api_key=${APIkey}`)
+    .then((r) => {
+
+      return r;
+    });
+}
+export async function GetMovieReview(id) {
+  return await axios
+
+    .get(`${APIadress}movie/${id}/reviews?api_key=${APIkey}`)
+    .then((r) => {
+
       return r;
     });
 }
