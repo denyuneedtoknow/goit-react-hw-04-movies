@@ -13,7 +13,7 @@ const Cast = () => {
     useEffect(() => {
 
         GetMovieCast(params.movieId).then((data) => {
-            console.log(data.data.cast);
+
             setCast(data.data.cast);
         })
 
@@ -24,7 +24,7 @@ const Cast = () => {
             <h2>Starring</h2>
             <ul className={s.actorsList}>
                 {cast.map((actor) => {
-                    return <li key={actor.id}><div classname={s.actorCard}><img className={s.profilePhoto} src={actor.profile_path ? `${APIadress}${actor.profile_path}` : defaultImage} alt={actor.name} /><p>{actor.name}</p>as<p>{actor.character}</p></div></li>
+                    return <li key={actor.id}><div className={s.actorCard}><img className={s.profilePhoto} src={actor.profile_path ? `${APIadress}${actor.profile_path}` : defaultImage} alt={actor.name} /><p>{actor.name}</p>as<p>{actor.character}</p></div></li>
                 })}
             </ul>
         </div>

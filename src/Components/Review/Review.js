@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useRouteMatch, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { GetMovieReview } from "../../Services/GetMovies";
 import { useState, useEffect } from "react";
 import s from "../Cast/Cast.module.css";

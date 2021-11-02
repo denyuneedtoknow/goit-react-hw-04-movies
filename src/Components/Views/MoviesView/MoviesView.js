@@ -1,28 +1,43 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import { GetMovieByName, GetMovieCast } from "../../../Services/GetMovies";
+import { Link, useHistory, useLocation } from "react-router-dom";
+import { GetMovieByName, } from "../../../Services/GetMovies";
 import { useState, useEffect } from "react";
 import s from "../../Views/Views.module.css";
 import SearchBar from "../../SearchBar";
 
 const MoviesView = () => {
+  const history = useHistory();
+  const location = useLocation();
   const APIadress = "https://image.tmdb.org/t/p/w500/";
   const [movies, setMovies] = useState([]);
+  const searchParam = new URLSearchParams(location.search).get('query') ?? ''
 
-  const [keyword, setKeyword] = useState("");
+
+
+
 
   useEffect(() => {
-    if (keyword === "") {
+    if (searchParam === "") {
       return;
     }
-    GetMovieByName(keyword).then((data) => {
-      setMovies(data.data.results);
-    });
+    if (searchParam) {
+      GetMovieByName(searchParam).then((data) => {
+        setMovies(data.data.results);
+      });
+    }
 
-  }, [keyword]);
+  }, [searchParam]);
+
+
 
   const handleFormSubmit = (keyword) => {
-    setKeyword(keyword);
+    if (keyword) {
+      history.push({
+        ...location,
+        search: `query=${keyword}`,
+      });
+    }
+
   };
 
   if (movies) {
@@ -34,7 +49,10 @@ const MoviesView = () => {
           <SearchBar onSubmit={handleFormSubmit} />
           <ul>
             {movies.map((movie) => {
-              return <li key={movie.id}> <Link to={`/movies/${movie.id}`}>
+              return <li key={movie.id}> <Link to={{
+                pathname: `/movies/${movie.id}`,
+                state: { from: location }
+              }}>
                 <div className={s.movieCardThumb}>
                   <h2>{movie.title}</h2>
                   <img
