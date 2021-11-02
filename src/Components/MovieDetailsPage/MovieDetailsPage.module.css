@@ -10,3 +10,9 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 350px;
+}

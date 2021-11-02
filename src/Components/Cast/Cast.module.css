@@ -13,3 +13,8 @@
   flex-wrap: nowrap;
   align-items: center;
 }
+.loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 350px;
+}

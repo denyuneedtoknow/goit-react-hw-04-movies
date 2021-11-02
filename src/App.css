@@ -3,3 +3,9 @@
 ul {
   list-style-type: none;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 350px;
+}
