@@ -83,7 +83,11 @@ const MovieDetailsPage = () => {
               <h1 className={s.header}>{movieDetails.title}</h1>
               <img
                 alt={movieDetails.title}
-                src={(`${APIadress}${movieDetails.poster_path}`) ? (`${APIadress}${movieDetails.poster_path}`) : 'https://dummyimage.com/200x250/2a2a2a/ffffff&text=Movie+image+placeholder'}
+                src={
+                  movieDetails.poster_path
+                    ? `${APIadress}${movieDetails.poster_path}`
+                    : "https://dummyimage.com/200x250/2a2a2a/ffffff&text=Movie+image+placeholder"
+                }
               />
               <p className={s.movieView}>{movieDetails.overview}</p>
             </div>

@@ -24,15 +24,22 @@ const HomeView = () => {
           {movies.map((movie) => {
             return (
               <li key={movie.id}>
-                <Link className={s.link} to={{
-                  pathname: `/movies/${movie.id}`,
-                  state: { from: location }
-                }}>
+                <Link
+                  className={s.link}
+                  to={{
+                    pathname: `/movies/${movie.id}`,
+                    state: { from: location },
+                  }}
+                >
                   <div className={s.movieCardThumb}>
                     <h2 className={s.movieTitle}>{movie.title}</h2>
                     <img
                       alt={movie.title}
-                      src={`${APIadress}${movie.poster_path}`}
+                      src={
+                        movie.poster_path
+                          ? `${APIadress}${movie.poster_path}`
+                          : "https://dummyimage.com/200x250/2a2a2a/ffffff&text=Movie+image+placeholder"
+                      }
                     />
                   </div>
                 </Link>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import { GetMovieByName, } from "../../../Services/GetMovies";
+import { GetMovieByName } from "../../../Services/GetMovies";
 import { useState, useEffect } from "react";
 import s from "../../Views/Views.module.css";
 import SearchBar from "../../SearchBar";
@@ -10,11 +10,7 @@ const MoviesView = () => {
   const location = useLocation();
   const APIadress = "https://image.tmdb.org/t/p/w500/";
   const [movies, setMovies] = useState([]);
-  const searchParam = new URLSearchParams(location.search).get('query') ?? ''
-
-
-
-
+  const searchParam = new URLSearchParams(location.search).get("query") ?? "";
 
   useEffect(() => {
     if (searchParam === "") {
@@ -25,10 +21,7 @@ const MoviesView = () => {
         setMovies(data.data.results);
       });
     }
-
   }, [searchParam]);
-
-
 
   const handleFormSubmit = (keyword) => {
     if (keyword) {
@@ -37,7 +30,6 @@ const MoviesView = () => {
         search: `query=${keyword}`,
       });
     }
-
   };
 
   if (movies) {
@@ -49,18 +41,30 @@ const MoviesView = () => {
           <SearchBar onSubmit={handleFormSubmit} />
           <ul>
             {movies.map((movie) => {
-              return <li key={movie.id}> <Link className={s.link} to={{
-                pathname: `/movies/${movie.id}`,
-                state: { from: location }
-              }}>
-                <div className={s.movieCardThumb}>
-                  <h2>{movie.title}</h2>
-                  <img
-                    alt={movie.title}
-                    src={`${APIadress}${movie.poster_path}`}
-                  />
-                </div>
-              </Link></li>;
+              return (
+                <li key={movie.id}>
+                  {" "}
+                  <Link
+                    className={s.link}
+                    to={{
+                      pathname: `/movies/${movie.id}`,
+                      state: { from: location },
+                    }}
+                  >
+                    <div className={s.movieCardThumb}>
+                      <h2>{movie.title}</h2>
+                      <img
+                        alt={movie.title}
+                        src={
+                          movie.poster_path
+                            ? `${APIadress}${movie.poster_path}`
+                            : "https://dummyimage.com/200x250/2a2a2a/ffffff&text=Movie+image+placeholder"
+                        }
+                      />
+                    </div>
+                  </Link>
+                </li>
+              );
             })}
           </ul>
         </div>

@@ -1,34 +1,46 @@
 import React from "react";
-import { useParams, useRouteMatch, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { GetMovieCast } from "../../Services/GetMovies";
 import { useState, useEffect } from "react";
 import s from "../Cast/Cast.module.css";
-import defaultImage from '../../Images/unknown.jpg'
-
+import defaultImage from "../../Images/unknown.jpg";
 
 const Cast = () => {
-    const APIadress = "https://image.tmdb.org/t/p/w500/"
-    const params = useParams()
-    const [cast, setCast] = useState([]);
-    useEffect(() => {
+  const APIadress = "https://image.tmdb.org/t/p/w500/";
+  const params = useParams();
+  const [cast, setCast] = useState([]);
+  useEffect(() => {
+    GetMovieCast(params.movieId).then((data) => {
+      setCast(data.data.cast);
+    });
+  }, [params.movieId]);
 
-        GetMovieCast(params.movieId).then((data) => {
+  return (
+    <div>
+      <h2 className={s.header}>Starring</h2>
+      <ul className={s.actorsList}>
+        {cast.map((actor) => {
+          return (
+            <li key={actor.id}>
+              <div className={s.actorCard}>
+                <img
+                  className={s.profilePhoto}
+                  src={
+                    actor.profile_path
+                      ? `${APIadress}${actor.profile_path}`
+                      : defaultImage
+                  }
+                  alt={actor.name}
+                />
+                <p className={s.name}>{actor.name}</p>as
+                <p className={s.role}>{actor.character}</p>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
 
-            setCast(data.data.cast);
-        })
-
-    }, [params.movieId]);
-
-    return (
-        <div>
-            <h2 className={s.header}>Starring</h2>
-            <ul className={s.actorsList}>
-                {cast.map((actor) => {
-                    return <li key={actor.id}><div className={s.actorCard}><img className={s.profilePhoto} src={actor.profile_path ? `${APIadress}${actor.profile_path}` : defaultImage} alt={actor.name} /><p className={s.name}>{actor.name}</p>as<p className={s.role}>{actor.character}</p></div></li>
-                })}
-            </ul>
-        </div>
-    )
-}
-
-export default Cast
+export default Cast;
