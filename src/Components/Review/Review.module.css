@@ -1,0 +1,16 @@
+.header {
+  margin-bottom: 30px;
+  margin-left: 50px;
+  padding: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: darkblue;
+}
+.reviewer {
+  text-decoration-line: underline;
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.review {
+  color: white;
+  padding-right: 50px;
+}

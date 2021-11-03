@@ -1,15 +1,8 @@
-.Searchbar {
-}
-.SearchForm {
-  display: flex;
-}
-.SearchFormInput {
-  padding: 0px 2px 0px 2px;
-}
-.SearchFormButton {
+.GoBackBtn {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 50px;
   width: 90px;
   background-color: white;
   color: darkblue;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { GetTrandingMovies } from "../../../Services/GetMovies";
 import { useState, useEffect } from "react";
 import s from "../../Views/Views.module.css";
@@ -7,6 +7,7 @@ import s from "../../Views/Views.module.css";
 const HomeView = () => {
   const APIadress = "https://image.tmdb.org/t/p/w500/";
   const [movies, setMovies] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     GetTrandingMovies().then((data) => {
@@ -17,18 +18,21 @@ const HomeView = () => {
   return (
     <>
       {" "}
-      <div>
-        <h1>This week trending</h1>
+      <div className={s.globalView}>
+        <h1 className={s.header}>This week trending:</h1>
         <ul>
           {movies.map((movie) => {
             return (
               <li key={movie.id}>
-                <Link to={`/movies/${movie.id}`}>
+                <Link className={s.link} to={{
+                  pathname: `/movies/${movie.id}`,
+                  state: { from: location }
+                }}>
                   <div className={s.movieCardThumb}>
-                    <h2>{movie.title}</h2>
+                    <h2 className={s.movieTitle}>{movie.title}</h2>
                     <img
                       alt={movie.title}
-                      src={`${APIadress}${movie.backdrop_path}`}
+                      src={`${APIadress}${movie.poster_path}`}
                     />
                   </div>
                 </Link>

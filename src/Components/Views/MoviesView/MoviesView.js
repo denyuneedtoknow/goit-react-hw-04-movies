@@ -44,12 +44,12 @@ const MoviesView = () => {
     return (
       <>
         {" "}
-        <div>
-          <h1>Search for the movie</h1>
+        <div className={s.globalView}>
+          <h1 className={s.header}>Search for the movie</h1>
           <SearchBar onSubmit={handleFormSubmit} />
           <ul>
             {movies.map((movie) => {
-              return <li key={movie.id}> <Link to={{
+              return <li key={movie.id}> <Link className={s.link} to={{
                 pathname: `/movies/${movie.id}`,
                 state: { from: location }
               }}>
@@ -57,7 +57,7 @@ const MoviesView = () => {
                   <h2>{movie.title}</h2>
                   <img
                     alt={movie.title}
-                    src={`${APIadress}${movie.backdrop_path}`}
+                    src={`${APIadress}${movie.poster_path}`}
                   />
                 </div>
               </Link></li>;

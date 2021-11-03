@@ -34,6 +34,7 @@ const MovieDetailsPage = () => {
       .then((r) => {
         setMovieDetails(r.data);
         setStatus("resolved");
+
         if (location.state) {
           setBackAddress({
             pathname: `${location.state.from.pathname}`,
@@ -77,15 +78,15 @@ const MovieDetailsPage = () => {
         <div>
           <GoBackBtn onClick={GoBackBtnClick} />
           {movieDetails && (
-            <>
+            <div className={s.movieInfo}>
               {" "}
-              <h1>{movieDetails.title}</h1>
+              <h1 className={s.header}>{movieDetails.title}</h1>
               <img
                 alt={movieDetails.title}
-                src={`${APIadress}${movieDetails.backdrop_path}`}
+                src={(`${APIadress}${movieDetails.poster_path}`) ? (`${APIadress}${movieDetails.poster_path}`) : 'https://dummyimage.com/200x250/2a2a2a/ffffff&text=Movie+image+placeholder'}
               />
               <p className={s.movieView}>{movieDetails.overview}</p>
-            </>
+            </div>
           )}
           <div className={s.moreInfoMenu}>
             <Link className={s.moreInfoBtn} to={`${url}/cast`}>

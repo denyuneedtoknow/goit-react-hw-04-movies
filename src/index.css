@@ -5,6 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(30, 87, 153);
+  background: radial-gradient(
+    circle,
+    rgba(30, 87, 153, 1) 0%,
+    rgba(133, 163, 247, 1) 100%
+  );
 }
 
 code {

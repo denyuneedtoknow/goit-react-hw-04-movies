@@ -34,7 +34,7 @@ function SearchBar({ onSubmit }) {
           onChange={handleKeywordChange}
         />
         <button type="submit" className={s.SearchFormButton}>
-          <span className={s.SearchFormButtonLabel}>Search</span>
+          <span className={s.SearchFormButtonLabel}>GO!</span>
         </button>
       </form>
     </header>

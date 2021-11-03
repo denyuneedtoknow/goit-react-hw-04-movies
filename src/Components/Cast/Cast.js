@@ -21,10 +21,10 @@ const Cast = () => {
 
     return (
         <div>
-            <h2>Starring</h2>
+            <h2 className={s.header}>Starring</h2>
             <ul className={s.actorsList}>
                 {cast.map((actor) => {
-                    return <li key={actor.id}><div className={s.actorCard}><img className={s.profilePhoto} src={actor.profile_path ? `${APIadress}${actor.profile_path}` : defaultImage} alt={actor.name} /><p>{actor.name}</p>as<p>{actor.character}</p></div></li>
+                    return <li key={actor.id}><div className={s.actorCard}><img className={s.profilePhoto} src={actor.profile_path ? `${APIadress}${actor.profile_path}` : defaultImage} alt={actor.name} /><p className={s.name}>{actor.name}</p>as<p className={s.role}>{actor.character}</p></div></li>
                 })}
             </ul>
         </div>

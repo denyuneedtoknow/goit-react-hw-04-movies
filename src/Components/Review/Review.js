@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { GetMovieReview } from "../../Services/GetMovies";
 import { useState, useEffect } from "react";
-import s from "../Cast/Cast.module.css";
+import s from "../Review/Review.module.css";
 
 
 const Reviews = () => {
@@ -19,10 +19,10 @@ const Reviews = () => {
     if (reviews.length === 0) { return (<div>No reviews finded</div>) }
     return (
         <div>
-            <h2>Reviews</h2>
+            <h2 className={s.header}>Reviews</h2>
             <ul>
                 {reviews.map((review) => {
-                    return <li key={review.id}><div><h3>{review.author}</h3><p>{review.content}</p></div></li>
+                    return <li key={review.id}><div><h3 className={s.reviewer}>{review.author}</h3 ><p className={s.review}>{review.content}</p></div></li>
                 })}
             </ul>
         </div>

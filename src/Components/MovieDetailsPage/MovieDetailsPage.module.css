@@ -1,9 +1,12 @@
 .moreInfoBtn {
   display: flex;
+  justify-content: center;
   height: 50px;
   width: 80px;
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 5px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
 }
 
 .moreInfoMenu {
@@ -15,4 +18,28 @@
   display: flex;
   justify-content: center;
   margin-top: 350px;
+}
+
+.header {
+  margin-bottom: 30px;
+  padding: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: darkblue;
+}
+.movieInfo {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.movieView {
+  display: flex;
+  color: white;
+  border: 1px solid white;
+  padding: 10px;
+}
+
+.moreInfoBtn:hover,
+.moreInfoBtn:focus {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }

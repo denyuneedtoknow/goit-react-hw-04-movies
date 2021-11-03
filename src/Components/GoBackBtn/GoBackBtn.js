@@ -1,3 +1,6 @@
+import s from './GoBackBtn.module.css'
+
+
 const GoBackBtn = ({ onClick }) => {
 
     const handleGoBack = (e) => {
@@ -5,7 +8,7 @@ const GoBackBtn = ({ onClick }) => {
     }
 
     return (
-        < button type='button' onClick={handleGoBack}>Go back</button>)
+        < button className={s.GoBackBtn} type='button' onClick={handleGoBack}>Go back</button>)
 }
 
 export default GoBackBtn

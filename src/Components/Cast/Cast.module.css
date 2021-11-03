@@ -18,3 +18,18 @@
   justify-content: center;
   margin-top: 350px;
 }
+.header {
+  margin-bottom: 30px;
+  margin-left: 50px;
+  padding: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: darkblue;
+}
+.name {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: darkblue;
+}
+.role {
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
