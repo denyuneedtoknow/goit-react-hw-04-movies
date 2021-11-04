@@ -3,6 +3,19 @@
   flex-direction: column;
   align-items: center;
 }
+.itemGalery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
 .header {
   padding-left: 30px;
   color: white;

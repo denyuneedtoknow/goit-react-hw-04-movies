@@ -39,7 +39,7 @@ const MoviesView = () => {
         <div className={s.globalView}>
           <h1 className={s.header}>Search for the movie</h1>
           <SearchBar onSubmit={handleFormSubmit} />
-          <ul>
+          <ul className={s.itemGalery}>
             {movies.map((movie) => {
               return (
                 <li key={movie.id}>
