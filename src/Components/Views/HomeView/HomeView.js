@@ -20,7 +20,7 @@ const HomeView = () => {
       {" "}
       <div className={s.globalView}>
         <h1 className={s.header}>This week trending:</h1>
-        <ul>
+        <ul className={s.itemGalery}>
           {movies.map((movie) => {
             return (
               <li key={movie.id}>
